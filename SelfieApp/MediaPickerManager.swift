@@ -9,10 +9,19 @@
 import UIKit
 import MobileCoreServices
 
+
+protocol MediaPickerManagerDelegate: class {
+    
+    func mediaPickerManager(manager: MediaPickerManager, didFinishPickingImage image: UIImage)
+    
+}
+
 class MediaPickerManager: NSObject {
 
         private let imagePickerController = UIImagePickerController()
         private let presentingViewController: UIViewController
+    
+    weak var delegate: MediaPickerManagerDelegate?
     
     init(presentingViewController: UIViewController){
         self.presentingViewController = presentingViewController
@@ -36,5 +45,13 @@ class MediaPickerManager: NSObject {
     
     func dismissImagePickerController(animated animated: Bool, completion: @escaping (() -> Void)){
         imagePickerController.dismiss(animated: animated, completion: completion)
+    }
+}
+
+extension MediaPickerManager: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        delegate?.mediaPickerManager(manager: self, didFinishPickingImage: image)
     }
 }
