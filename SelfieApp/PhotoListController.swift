@@ -27,10 +27,22 @@ class PhotoListController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    //MARK: - Layout
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        view.addSubview(cameraButton)
+        cameraButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cameraButton.leftAnchor.constraint(equalTo: view.leftAnchor),
+            cameraButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            cameraButton.rightAnchor.constraint(equalTo: view.rightAnchor),
+            cameraButton.heightAnchor.constraint(equalToConstant: 56.0)
+            ])
     }
 
     @objc private func presentImagePickerController() {
