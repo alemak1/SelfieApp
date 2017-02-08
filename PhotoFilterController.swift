@@ -21,6 +21,7 @@ class PhotoFilterController: UIViewController{
     
     init(image: UIImage){
         self.mainImage = image
+        self.photoImageView.image = self.mainImage
         super.init(nibName: nil, bundle: nil)
     }
     
