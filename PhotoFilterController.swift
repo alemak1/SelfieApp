@@ -25,8 +25,9 @@ class PhotoFilterController: UIViewController{
         flowLayout.minimumLineSpacing = 10
         flowLayout.minimumInteritemSpacing = 1000
         flowLayout.itemSize = CGSize(width: 100, height: 100)
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: flowLayout)
-        collectionView.backgroundView = UIColor.white
+        let frameInitializer = CGRect(x: 0, y: 0, width: 0, height: 0)
+        let collectionView = UICollectionView(frame: frameInitializer, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = UIColor.white
         return collectionView
     }()
     
