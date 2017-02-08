@@ -19,6 +19,17 @@ class PhotoFilterController: UIViewController{
         return imageView
     }()
     
+    lazy var filtersCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 1000
+        flowLayout.itemSize = CGSize(width: 100, height: 100)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: flowLayout)
+        collectionView.backgroundView = UIColor.white
+        return collectionView
+    }()
+    
     init(image: UIImage){
         self.mainImage = image
         self.photoImageView.image = self.mainImage
