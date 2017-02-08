@@ -13,6 +13,12 @@ class PhotoFilterController: UIViewController{
     
     private var mainImage: UIImage
     
+    private let photoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     init(image: UIImage){
         self.mainImage = image
         super.init(nibName: nil, bundle: nil)
