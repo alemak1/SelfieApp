@@ -25,6 +25,13 @@ class PhotoFilterController: UIViewController{
         super.init(nibName: nil, bundle: nil)
     }
     
+    private lazy var filterHeaderLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Select a filter"
+        label.textAlignment = .center
+        return label
+    }()
+    
     required init?(coder aDecoder: NSCoder){
         fatalError()
     }
