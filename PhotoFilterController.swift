@@ -55,4 +55,29 @@ class PhotoFilterController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillLayoutSubviews() {
+        photoImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(photoImageView)
+        
+        filterHeaderLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(filterHeaderLabel)
+        
+        filtersCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(filtersCollectionView)
+        
+        NSLayoutConstraint.activate([
+            filtersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            filtersCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            filtersCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            filtersCollectionView.heightAnchor.constraint(equalToConstant: 200.0),
+            filtersCollectionView.topAnchor.constraint(equalTo: filterHeaderLabel.bottomAnchor),
+            filterHeaderLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
+            filterHeaderLabel.rightAnchor.constraint(equalTo: view.rightAnchor),
+            photoImageView.bottomAnchor.constraint(equalTo: filtersCollectionView.topAnchor),
+            photoImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            photoImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            photoImageView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            ])
+    }
 }
