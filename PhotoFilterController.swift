@@ -44,6 +44,11 @@ class PhotoFilterController: UIViewController{
         return label
     }()
     
+    private lazy var filteredImages: [UIImage] = {
+        let filteredImageBuilder = FilteredImageBuilder(image: self.mainImage)
+        return filteredImageBuilder.imageWithDefaultFilters()
+    }()
+    
     required init?(coder aDecoder: NSCoder){
         fatalError()
     }
