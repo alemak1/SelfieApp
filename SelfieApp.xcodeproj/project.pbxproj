@@ -12,6 +12,7 @@
 		BD0EB8461E49F5E500176E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0EB8451E49F5E500176E24 /* Assets.xcassets */; };
 		BD0EB8491E49F5E500176E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0EB8471E49F5E500176E24 /* LaunchScreen.storyboard */; };
 		BD0EB8511E49FDBA00176E24 /* MediaPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0EB8501E49FDBA00176E24 /* MediaPickerManager.swift */; };
+		BD1066B81E4C0AE700DFF63B /* FilteredImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1066B71E4C0AE700DFF63B /* FilteredImageCell.swift */; };
 		BDB09E781E4B364800F2E233 /* PhotoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB09E771E4B364800F2E233 /* PhotoFilterController.swift */; };
 		BDB09E7A1E4B3CFF00F2E233 /* FilteredImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB09E791E4B3CFF00F2E233 /* FilteredImageBuilder.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		BD0EB8481E49F5E500176E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD0EB84A1E49F5E500176E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD0EB8501E49FDBA00176E24 /* MediaPickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPickerManager.swift; sourceTree = "<group>"; };
+		BD1066B71E4C0AE700DFF63B /* FilteredImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredImageCell.swift; sourceTree = "<group>"; };
 		BDB09E771E4B364800F2E233 /* PhotoFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoFilterController.swift; path = ../PhotoFilterController.swift; sourceTree = "<group>"; };
 		BDB09E791E4B3CFF00F2E233 /* FilteredImageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredImageBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 		BDB09E751E4B357F00F2E233 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD1066B71E4C0AE700DFF63B /* FilteredImageCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				BDB09E7A1E4B3CFF00F2E233 /* FilteredImageBuilder.swift in Sources */,
 				BD0EB8511E49FDBA00176E24 /* MediaPickerManager.swift in Sources */,
+				BD1066B81E4C0AE700DFF63B /* FilteredImageCell.swift in Sources */,
 				BD0EB8411E49F5E500176E24 /* PhotoListController.swift in Sources */,
 				BDB09E781E4B364800F2E233 /* PhotoFilterController.swift in Sources */,
 				BD0EB83F1E49F5E500176E24 /* AppDelegate.swift in Sources */,
