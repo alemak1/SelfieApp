@@ -56,13 +56,13 @@ final class FilteredImageBuilder{
     }
     
     func imageWithDefaultFilters() -> [UIImage]{
-        return image(image(withFilters: PhotoFilter.defaultFilters()))
+        return image(withFilters: PhotoFilter.defaultFilters())
     }
     
     func image(withFilters filters: [CIFilter]) -> [UIImage]{
      
-        return filters.map({
-            image(self.image, withFilter: $0)})
+        return filters.map{
+            image(image: self.image, withFilter: $0)}
     }
     
     func image(image: UIImage, withFilter filter: CIFilter) -> UIImage{

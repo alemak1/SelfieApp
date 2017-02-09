@@ -46,7 +46,7 @@ class PhotoFilterController: UIViewController{
         return label
     }()
     
-    private lazy var filteredImages: [UIImage] = {
+    lazy var filteredImages: [UIImage] = {
         let filteredImageBuilder = FilteredImageBuilder(image: self.mainImage)
         return filteredImageBuilder.imageWithDefaultFilters()
     }()
