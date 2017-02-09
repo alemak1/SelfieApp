@@ -14,7 +14,7 @@ import UIKit
 
 final class FilteredImageBuilder{
     private let image: UIImage
-
+    private let context: CIContext
     
     private struct PhotoFilter{
         
@@ -51,26 +51,25 @@ final class FilteredImageBuilder{
         
     }
     
-    init(image: UIImage){
+    init(context: CIContext ,image: UIImage){
         self.image = image
+        self.context = context
     }
     
-    func imageWithDefaultFilters() -> [UIImage]{
+    func imageWithDefaultFilters() -> [CGImage]{
         return image(withFilters: PhotoFilter.defaultFilters())
     }
     
-    func image(withFilters filters: [CIFilter]) -> [UIImage]{
+    func image(withFilters filters: [CIFilter]) -> [CGImage]{
      
         return filters.map{
             image(image: self.image, withFilter: $0)}
     }
     
-    func image(image: UIImage, withFilter filter: CIFilter) -> UIImage{
+    func image(image: UIImage, withFilter filter: CIFilter) -> CGImage{
         let inputImage = image.ciImage ?? CIImage(image: image)!
         filter.setValue(inputImage, forKey: kCIInputImageKey)
         
-        let outputImage = filter.outputImage!
-        
-        return UIImage(ciImage: outputImage)
+        return context.createCGImage(filter.outputImage!, from: inputImage.extent)!
     }
 }

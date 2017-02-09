@@ -12,6 +12,7 @@ import UIKit
 class PhotoFilterController: UIViewController{
     
     private var mainImage: UIImage
+    private let context: CIContext
     
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -33,8 +34,9 @@ class PhotoFilterController: UIViewController{
         return collectionView
     }()
     
-    init(image: UIImage){
+    init(image: UIImage, context: CIContext){
         self.mainImage = image
+        self.context = context
         self.photoImageView.image = self.mainImage
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,8 +48,8 @@ class PhotoFilterController: UIViewController{
         return label
     }()
     
-    lazy var filteredImages: [UIImage] = {
-        let filteredImageBuilder = FilteredImageBuilder(image: self.mainImage)
+    lazy var filteredImages: [CGImage] = {
+        let filteredImageBuilder = FilteredImageBuilder(context: self.context, image: self.mainImage)
         return filteredImageBuilder.imageWithDefaultFilters()
     }()
     
@@ -102,7 +104,12 @@ extension PhotoFilterController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseIdentifier, for: indexPath) as! FilteredImageCell
-        cell.imageView.image = filteredImages[indexPath.row]
+        
+    
+        let cgImage = filteredImages[indexPath.row]
+        let image = UIImage(cgImage: cgImage)
+        cell.imageView.image = image
+        
         return cell
     }
 }
