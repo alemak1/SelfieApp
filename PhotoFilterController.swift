@@ -28,6 +28,8 @@ class PhotoFilterController: UIViewController{
         let frameInitializer = CGRect(x: 0, y: 0, width: 0, height: 0)
         let collectionView = UICollectionView(frame: frameInitializer, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.white
+        collectionView.dataSource = self
+        collectionView.register(FilteredImageCell.self, forCellWithReuseIdentifier: FilteredImageCell.reuseIdentifier)
         return collectionView
     }()
     
@@ -86,3 +88,22 @@ class PhotoFilterController: UIViewController{
             ])
     }
 }
+
+//MARK: - UICollectionViewDataSource
+
+extension PhotoFilterController: UICollectionViewDataSource{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filteredImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseIdentifier, for: indexPath) as! FilteredImageCell
+        cell.imageView.image = filteredImages[indexPath.row]
+        return cell
+    }
+}
+
